@@ -50,11 +50,11 @@ const Addproduct: NextPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   useContractEvent({
-    address: "0x2298cCe5c77225Cc3f320a3acCaD1a9639206852",
+    address: "0xBaA4e82FeC4988Dd27573A8180Cd0e35F65577d1",
     abi: ABI,
     eventName: "ProofSubmitted",
-    listener: (eventHappened, userAddress, error) => {
-      if (eventHappened) {
+    listener: (verified, userAddress, error) => {
+      if (verified) {
         setUserAddress(userAddress as string);
       }
     },
@@ -204,7 +204,7 @@ const Addproduct: NextPage = () => {
                         </div>
                       </div>
                       <div className="max-w-[200px] flex m-auto">
-                        <Button label="Add Product" onClick={() => {write?.()}} />
+                        <Button label="Add Product" onClick={onOpen} />
                         <Modal onClose={onClose} isOpen={isOpen} isCentered>
                           <ModalOverlay />
                           <ModalContent>

@@ -111,7 +111,7 @@ const Header = () => {
                   <PopoverContent className="bg-pink-100 bg-opacity-80 box-border h-25 w-35 dark:bg-black/40 dark:bg-opacity-80 dark:text-white/80 shadow-lg rounded-xl border-1 p-4 min-w-sm">
                     <Link
                       target={"_blank"}
-                      href="https://platform-test.polygonid.com/claim-link/2ed5b81c-e88e-4fea-843c-06f607b1d94c"
+                      href="https://platform-test.polygonid.com/claim-link/39331065-4ec0-4f43-8e7d-f10855edbe68"
                       className="group display-block p-2 rounded-md hover:bg-pink-200 hover:text-[#a13bf7]"
                     >
                       <Stack direction={"row"} align={"center"}>
