@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { BiMoon, BiSun } from "react-icons/bi";
 import { useRouter } from "next/router";
+import { ConnectKitButton } from "connectkit";
 
 const Header = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
@@ -34,7 +35,7 @@ const Header = () => {
             </span>
           </Link>
           <div className="flex md:order-2" style={{ marginLeft: "2rem" }}>
-            
+            <ConnectKitButton/>
             <button
               data-collapse-toggle="mobile-menu-4"
               type="button"
