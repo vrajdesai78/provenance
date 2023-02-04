@@ -14,11 +14,9 @@ import {
   useAccount,
 } from "wagmi";
 import ABI from "../contracts/polygonID_ABI.json";
-import { useToast } from "@chakra-ui/react";
 import { Web3Storage } from "web3.storage";
 import trustchainABI from "../contracts/trustchain.json";
 import manufacturerQR from "../contracts/manufacturer/manufacturer.json";
-import { useDisclosure } from "@chakra-ui/react";
 import {
   Modal,
   ModalOverlay,
@@ -30,6 +28,8 @@ import {
   Box,
   Image,
   Text,
+  useDisclosure,
+  useToast
 } from "@chakra-ui/react";
 import { QRCode } from "react-qr-svg";
 import { CONTRACT_ADDRESS } from "../utils/contractAddress";
@@ -204,7 +204,7 @@ const Addproduct: NextPage = () => {
                         </div>
                       </div>
                       <div className="max-w-[200px] flex m-auto">
-                        <Button label="Add Product" onClick={onOpen} />
+                        <Button label="Add Product" onClick={() => {write?.()}} />
                         <Modal onClose={onClose} isOpen={isOpen} isCentered>
                           <ModalOverlay />
                           <ModalContent>
