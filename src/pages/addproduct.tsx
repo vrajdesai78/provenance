@@ -33,6 +33,8 @@ import {
 } from "@chakra-ui/react";
 import { QRCode } from "react-qr-svg";
 import { CONTRACT_ADDRESS } from "../utils/contractAddress";
+import { useNetwork, useSwitchNetwork } from 'wagmi'
+
 
 const Addproduct: NextPage = () => {
   const [productData, setProductData] = useState({});
@@ -49,16 +51,21 @@ const Addproduct: NextPage = () => {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  try{
   useContractEvent({
-    address: "0xBaA4e82FeC4988Dd27573A8180Cd0e35F65577d1",
+    address: "0xa3aA8018Ec10D41b4804341aAfEFddb7f69C0cA8",
     abi: ABI,
     eventName: "ProofSubmitted",
-    listener: (verified, userAddress, error) => {
+    listener: ( userAddress,verified, error) => {
+      console.log(verified, userAddress, error)
       if (verified) {
         setUserAddress(userAddress as string);
       }
     },
   });
+} catch(e) {
+  console.log(e)
+}
 
   const toast = useToast();
 
@@ -80,6 +87,10 @@ const Addproduct: NextPage = () => {
   const { isLoading, isSuccess } = useWaitForTransaction({
     hash: data?.hash,
   });
+
+  const { chain } = useNetwork()
+  const { chains, error, isLoading:isNetworkLoading, pendingChainId, switchNetwork } =
+    useSwitchNetwork()
 
   useEffect(() => {
     if ("geolocation" in navigator) {
@@ -204,7 +215,12 @@ const Addproduct: NextPage = () => {
                         </div>
                       </div>
                       <div className="max-w-[200px] flex m-auto">
-                        <Button label="Add Product" onClick={onOpen} />
+                        <Button label="Add Product" onClick={() => {
+                              switchNetwork?.(80001);
+                              if(!isNetworkLoading) {
+                                onOpen();
+                              }
+                        }} />
                         <Modal onClose={onClose} isOpen={isOpen} isCentered>
                           <ModalOverlay />
                           <ModalContent>

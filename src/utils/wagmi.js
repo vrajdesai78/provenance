@@ -19,7 +19,7 @@ const firechain = {
 };
 
 const { chains, provider } = configureChains(
-  [firechain],
+  [firechain, polygonMumbai],
   [publicProvider()]
 );
 
