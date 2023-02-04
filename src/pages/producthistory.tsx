@@ -1,25 +1,79 @@
-import React from 'react';
-import { useState } from 'react';
-import { NextPage } from 'next';
-import Head from 'next/head';
-import Input from '../components/form-elements/input';
-import Header from '../components/form-components/Header';
-import Timeline from '../components/timeline';
-import ProductDetail from '../components/product-detail';
+import React from "react";
+import { useState, useEffect } from "react";
+import { NextPage } from "next";
+import Head from "next/head";
+import Input from "../components/form-elements/input";
+import Header from "../components/form-components/Header";
+import Timeline from "../components/timeline";
+import ProductDetail from "../components/product-detail";
+import trustchainABI from "../contracts/trustchain.json";
+import { useContractRead } from "wagmi";
+import { useRouter } from "next/router";
+import { CONTRACT_ADDRESS } from "../utils/contractAddress";
+
+interface ProductDetails {
+  name: string;
+  description: string;
+  imageURL: string;
+  locationStatuses: string[];
+  timestamp: number[];
+  locationURL: string[];
+}
 
 const Producthistory: NextPage = () => {
-  const [data, setData] = useState({});
-
+  const [productData, setProductData] = useState({});
+  const [productHistory, setProductHistory] = useState([
+    { title: "City", time: "dd/mm/yyyy, hh:mm:ss", Location: "" },
+  ]);
   const handleData = (e: any) => {
-    setData({ ...data, [e.target.name]: e.target.value })
-  }
+    setProductData({ ...productData, [e.target.name]: e.target.value });
+  };
 
-  /* Temp Product History Timeline */
-  const productHistory = [
-    { title: 'Sample Title1', subtitle:"2023", des:"This is a des" },
-    { title: 'Sample Title2', subtitle:"2023", des:"This is a des" },
-    { title: 'Sample Title3', subtitle:"2023", des:"This is a des" }
-  ]
+  const { data, isError, isLoading } = useContractRead({
+    address: CONTRACT_ADDRESS,
+    abi: trustchainABI,
+    functionName: "getProduct",
+    args: [parseInt((productData as any).productid)],
+  });
+
+  useEffect(() => {
+    if ((data as ProductDetails) && !isLoading) {
+      const {
+        name,
+        description,
+        imageURL,
+        locationStatuses,
+        timestamp,
+        locationURL,
+      } = data as ProductDetails;
+      setProductHistory(
+        locationStatuses.map((location: string, index: number) => {
+          const convertedTime = timestamp[index];
+          const date = new Date(convertedTime * 1000).toLocaleString();
+          return { title: location, time: date, Location: locationURL[index] };
+        })
+      );
+
+      setProductData({
+        ...productData,
+        name,
+        description,
+        imageURL,
+        locationStatuses,
+        timestamp,
+        locationURL,
+      });
+    }
+  }, [data, isLoading]);
+
+  const router = useRouter();
+  const productId = router.query.productId as string;
+
+  useEffect(() => {
+    if (productId) {
+      setProductData({ ...productData, productid: productId });
+    }
+  }, [productId]);
 
   return (
     <>
@@ -35,7 +89,7 @@ const Producthistory: NextPage = () => {
           <div className="flex flex-col text-center w-full">
             <div className="w-full py-4 overflow-x-hidden overflow-y-auto md:inset-0 justify-center flex md:h-full">
               <div className="relative w-full h-full md:h-auto">
-                <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <div className="relative bg-white bg-opacity-20 backdrop-blur-sm rounded-lg shadow dark:bg-gray-700 dark:bg-opacity-20">
                   <div className="px-6 py-6 lg:px-8">
                     <div className="flex flex-col md:flex-row space-x-5">
                       <div className="w-full md:w-1/2 space-y-6">
@@ -46,13 +100,21 @@ const Producthistory: NextPage = () => {
                             label="Product ID"
                             type="text"
                             placeholder="Product ID"
+                            value={(productData as any).productid}
                             onChange={handleData}
                           />
                         </form>
                         <div>
-                          <p className="text-xl font-medium title-font mb-4 text-[#D27D2D]">Product Details</p>
-                          <ProductDetail label="Product Id" value="sdfh2516q5dvvvvvqxv3x35" />
-                          <ProductDetail label="Product Image" value="/records.png" type="image" />
+                          <p className="text-xl font-medium title-font mb-4 text-[#a13bf7]">
+                            {(productData as any).name}
+                          </p>
+                          <div className="p-2 flex flex-col">
+                            <ProductDetail
+                              label=""
+                              value={(productData as any).imageURL}
+                              type="image"
+                            />
+                          </div>
                         </div>
                       </div>
                       <div className="w-full md:w-1/2 space-y-6">
@@ -67,7 +129,7 @@ const Producthistory: NextPage = () => {
         </div>
       </main>
     </>
-  )
-}
+  );
+};
 
-export default Producthistory
+export default Producthistory;

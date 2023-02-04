@@ -2,8 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import { NextPage } from 'next';
-import { GiDigitalTrace } from 'react-icons/gi';
-import { SiTrustpilot } from 'react-icons/si';
+import { BsFillFileEarmarkLockFill, BsFillCheckCircleFill } from 'react-icons/bs';
 import { MdSecurity } from 'react-icons/md';
 
 interface FeatureCardProps {
@@ -14,9 +13,9 @@ interface FeatureCardProps {
 
 const FeatureCard = ({title, desc, icon}: FeatureCardProps) => {
   return (
-    <div className="relative backdrop-blur-lg bg-white/40 dark:bg-gray-600 dark:bg-opacity-20 p-5 rounded-lg">
+    <div className="relative backdrop-blur-sm bg-white/40 bg-opacity-20 dark:bg-gray-700 dark:bg-opacity-30 p-5 rounded-lg">
       <dt className="flex flex-col items-center md:items-start">
-        <div className="flex items-center justify-center h-12 w-12 rounded-md bg-[#732fff] dark:bg-[#d97dff] text-white">
+        <div className="flex items-center justify-center h-12 w-12 rounded-md bg-[#732fff] dark:bg-[#a13bf7] text-white">
           {icon}
         </div>
         <p className="pt-5 text-lg leading-6 font-medium font-semibold text-[#732fff] dark:text-[#e99aff]">
@@ -34,8 +33,8 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Provenance</title>
-        <meta name="description" content="Provenance" />
+        <title>TrustChain</title>
+        <meta name="description" content="TrustChain" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -45,9 +44,9 @@ const Home: NextPage = () => {
             <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
               <span className="block xl:inline text-gray-800 dark:text-white">Welcome to</span>
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#8b00ff] to-[#a75eff] dark:from-[#8c2bff] dark:to-[#d97dff] pb-4">
-                Provenance
+                TrustChain
               </span>
-              <span className="block font-semibold text-purple-500 dark:text-[#e99aff] font-medium text-2xl">
+              <span className="block font-semibold text-gray-200 dark:text-[#e99aff] font-medium text-2xl">
                 Decentralized Application
               </span>
             </h1>
@@ -56,13 +55,13 @@ const Home: NextPage = () => {
             </p>
             <div className="mt-5 sm:mt-8 sm:flex lg:justify-start md:flex-col lg:flex-row">
               <div>
-                <Link href="/products" className="w-full md:w-[70%] lg:w-full flex items-center justify-center px-8 py-3 border-0 border-transparent text-base font-medium rounded-3xl text-white bg-gradient-to-r from-[#a13bf7] to-[#7500ff] drop-shadow-[0_1px_3px_#7d7d7d] hover:drop-shadow-[0_3px_5px_#7d7d7d] dark:hover:drop-shadow-[0_3px_5px_#8ce1ff] md:py-2 md:text-lg md:px-8"
+                <Link href="/explore" className="w-full md:w-[70%] lg:w-full flex items-center justify-center px-8 py-3 border-0 border-transparent text-base font-medium rounded-3xl text-white bg-gradient-to-r from-[#a13bf7] to-[#7500ff] hover:drop-shadow-[0_3px_5px_#7d7d7d] dark:hover:drop-shadow-[0_3px_5px_#8ce1ff] md:py-2 md:text-lg md:px-8"
                   >Explore</Link>
               </div>
             </div>
           </div>
           <div className="md:flex hidden my-auto w-[30%] md:w-[60%] ml-10 items-end">
-            <Image src="/provenance.png" width="500" height="500" className='ml-10' alt="Banner" />
+            <Image src="/vector.png" width="500" height="500" className='ml-10' alt="Banner" />
           </div>
         </div>
 
@@ -73,9 +72,9 @@ const Home: NextPage = () => {
             </h1>
           </div>
           <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-8 md:gap-y-10">
-            <FeatureCard icon={<GiDigitalTrace size={25} />} title="Traceability" desc="The user can track the movement and ownership of a product through its life cycle, creating a transparent record of its history." />
-            <FeatureCard icon={<SiTrustpilot size={25} />} title="Authenticity" desc="By providing a transparent and secure record of the history, it can verify its authenticity and prevent the sale of counterfeit goods." />
-            <FeatureCard icon={<MdSecurity size={25} />} title="Security" desc="The decentralized nature provides a secure and tamper-proof record of transactions, helping to prevent fraud and errors." />
+            <FeatureCard icon={<BsFillFileEarmarkLockFill size={25} />} title="Zero-knowledge Proof" desc="Products are operated only by authorized entity leveraging Polygon ID. It adds extra security layer over role's permission." />
+            <FeatureCard icon={<MdSecurity size={25} />} title="Security" desc="Everything on-chain! Prevent any forgery and errors while authenticating a product. No one can change provenance except the authorized person." />
+            <FeatureCard icon={<BsFillCheckCircleFill size={25} />} title="Verification" desc="It also ensures that the right person is adding or updating the product. User can explore the listed products and check the provenance." />
           </dl>
         </div>
       </main>

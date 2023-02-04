@@ -1,38 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# TrustChain
+TrustChain is a decentralized application that provides an interactive platform to verify the authenticity of the product as well as highly secured supply chain operations. The user can have confidence that the products they are purchasing genuine products and not counterfeits. The SCM operations are enhanced with Polygon ID leveraging Zero-knowledge Proof (ZKP). It actually provides the whole supply chain operation like adding products or updating product locations to maintain a secure channel for verifying the provenance of the products. The most ideal scenario for utilization would be in the realm of luxury goods, high-end art pieces, and exclusive collections. Check out our flow for a better understanding.
 
-## Getting Started
+[<img width="1360" alt="Flowchart - Miro Board" src="https://user-images.githubusercontent.com/79443588/212469639-2e6f063b-3244-456d-85ae-de71b7c7b0bb.png">](https://miro.com/app/board/uXjVP0py33I=/?share_link_id=459305515488)
 
-First, run the development server:
+## Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+Every user must have Metamask wallet to verify the provenance of products. Checkout how to create Metamask wallet from [here](https://polygon.technology/blog/getting-started-with-metamask-on-polygon). For SCM operations, kindly download the Polygon ID app from [here](https://support.polygon.technology/support/solutions/articles/82000889068-how-to-set-up-polygon-id-and-connect-) and create a wallet to store the claims. 
+
+Follow the instructions for local environment: The user must have Node.js and npm to run this platform. Just download Node.js from [here](https://nodejs.org/en/download/).
+
+### Setup Instructions
+
+Clone the repo via CLI:
+```sh
+git clone https://github.com/rkmonarch/TrustChain
+cd TrustChain
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Install the required packages:
+```sh
+npm install 
+yarn install   #or
+```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+In the project directory, you can run:
+```sh
+npm run dev
+yarn dev   #or
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
