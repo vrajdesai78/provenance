@@ -1,5 +1,13 @@
 import { useState } from "react";
 import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
   Box,
   Heading,
   Text,
@@ -9,6 +17,8 @@ import {
   useColorModeValue,
   HStack,
 } from "@chakra-ui/react";
+import Button from "../components/form-elements/button";
+import { QRCode } from "react-qr-svg";
 import { BsArrowUpRight } from "react-icons/bs";
 import { useRouter } from "next/router";
 
@@ -22,6 +32,7 @@ interface ProductProps {
 export default function ProductCard(props: ProductProps) {
   const router = useRouter();
   const { productId, name, description, imageURL } = props;
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Center py={6}>
       <Box
@@ -69,14 +80,38 @@ export default function ProductCard(props: ProductProps) {
           <Flex
             p={4}
             alignItems="center"
-            onClick={() => {
-              router.push(`/producthistory?productId=${productId}`);
-            }}
+            // onClick={() => {
+            //   router.push(`/producthistory?productId=${productId}`);
+            // }}
+            // write onclick to call the api and get the data
+            onClick={() => {onOpen();}}
             justifyContent={"space-between"}
             roundedBottom={"sm"}
             cursor={"pointer"}
             w="full"
           >
+            <Modal onClose={onClose} isOpen={isOpen} isCentered>
+              <ModalOverlay />
+              <ModalContent>
+                <ModalHeader> Verify authenticity of product</ModalHeader>
+                <ModalCloseButton />
+                <ModalBody>
+                  <Text className="font-semibold text-sm text-gray-500 text-center pb-5 -pt-5">
+                    Just scan the QR code and check the provenance.
+                  </Text>
+                  <Box className="flex flex-col items-center justify-center">
+                    <QRCode
+                      level="Q"
+                      style={{ width: 350 }}
+                      value={""}
+                    />
+                  </Box>
+                </ModalBody>
+                <ModalFooter>
+                  <Button label="Close" onClick={onClose} />
+                </ModalFooter>
+              </ModalContent>
+            </Modal>
             <Text fontSize={"md"} fontWeight={"semibold"}>
               View more
             </Text>
