@@ -95,54 +95,16 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Popover trigger={"hover"} placement={"bottom-start"}>
-                  <PopoverTrigger>
-                    <Link
-                      href="#"
-                      className={`${pathname === "#"
-                          ? "text-[#a137df] dark:text-white"
-                          : "text-gray-700"
-                        } block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-[#9504ff] md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700`}
-                      aria-current="page"
-                    >
-                      <b>Register</b>
-                    </Link>
-                  </PopoverTrigger>
-                  <PopoverContent className="bg-pink-100 bg-opacity-80 box-border h-25 w-35 dark:bg-black/40 dark:bg-opacity-80 dark:text-white/80 shadow-lg rounded-xl border-1 p-4 min-w-sm">
-                    <Link
-                      target={"_blank"}
-                      href="https://platform-test.polygonid.com/claim-link/39331065-4ec0-4f43-8e7d-f10855edbe68"
-                      className="group display-block p-2 rounded-md hover:bg-pink-200 hover:text-[#a13bf7]"
-                    >
-                      <Stack direction={"row"} align={"center"}>
-                        <Box>
-                          <Text className="font-semibold pb-1 transition ease-in-out delay-10 group-hover:pink-400">
-                            {"Manufacturer"}
-                          </Text>
-                        </Box>
-                        <Flex className="transition ease-in-out delay-10 opacity-0 -translate-x-10 group-hover:opacity-100 group-hover:translate-x-0 justify-flex-end flex self-center flex-1">
-                          <Icon w={15} h={15} as={ChevronRightIcon} />
-                        </Flex>
-                      </Stack>
-                    </Link>
-                    <Link
-                      target={"_blank"}
-                      href="https://platform-test.polygonid.com/claim-link/12aed2db-ff18-45eb-bd7a-480320f3c6c8"
-                      className="group display-block p-2 rounded-md hover:bg-pink-200 hover:text-[#a13bf7]"
-                    >
-                      <Stack direction={"row"} align={"center"}>
-                        <Box>
-                          <Text className="font-semibold transition ease-in-out delay-10 group-hover:pink-400">
-                            {"Distrubutor"}
-                          </Text>
-                        </Box>
-                        <Flex className="transition ease-in-out delay-10 opacity-0 -translate-x-10 group-hover:opacity-100 group-hover:translate-x-0 justify-flex-end flex self-center flex-1">
-                          <Icon w={15} h={15} as={ChevronRightIcon} />
-                        </Flex>
-                      </Stack>
-                    </Link>
-                  </PopoverContent>
-                </Popover>
+                <Link
+                  href="/register"
+                  className={`${pathname === "/register"
+                      ? "text-[#a137df] dark:text-white"
+                      : "text-gray-700"
+                    } block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-[#9504ff] md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700`}
+                  aria-current="page"
+                >
+                  <b>Register</b>
+                </Link>
               </li>
               <li>
                 <Popover trigger={"hover"} placement={"bottom-start"}>
