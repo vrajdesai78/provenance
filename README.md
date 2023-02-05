@@ -1,11 +1,11 @@
-# TrustChain
-TrustChain is a decentralized application that provides an interactive platform to verify the authenticity of the product as well as highly secured supply chain operations. The user can have confidence that the products they are purchasing genuine products and not counterfeits. The SCM operations are enhanced with Polygon ID leveraging Zero-knowledge Proof (ZKP). It actually provides the whole supply chain operation like adding products or updating product locations to maintain a secure channel for verifying the provenance of the products. The most ideal scenario for utilization would be in the realm of luxury goods, high-end art pieces, and exclusive collections. Check out our flow for a better understanding.
+# Provenance
+Provenance is a decentralized application that provides an interactive platform to verify the authenticity of the product as well as highly secured supply chain operations. The user can have confidence that the products they are purchasing genuine products and not counterfeits. It actually provides the whole supply chain operation like adding products or updating product locations to maintain a secure channel for verifying the provenance of the products. The most ideal scenario for utilization would be in the realm of luxury goods, high-end art pieces, and exclusive collections. Check out our flow for a better understanding. [here](https://miro.com/app/board/uXjVPqzH0MM=/?share_link_id=848990956212)
 
-[<img width="1360" alt="Flowchart - Miro Board" src="https://user-images.githubusercontent.com/79443588/212469639-2e6f063b-3244-456d-85ae-de71b7c7b0bb.png">](https://miro.com/app/board/uXjVP0py33I=/?share_link_id=459305515488)
+[<img width="1360" alt="Flowchart - Provenance" src="https://user-images.githubusercontent.com/79443588/216795259-10d6e101-d3cf-4135-be8b-871c4b9dd980.png">](https://miro.com/app/board/uXjVPqzH0MM=/?share_link_id=848990956212)
 
 ## Prerequisites
 
-Every user must have Metamask wallet to verify the provenance of products. Checkout how to create Metamask wallet from [here](https://polygon.technology/blog/getting-started-with-metamask-on-polygon). For SCM operations, kindly download the Polygon ID app from [here](https://support.polygon.technology/support/solutions/articles/82000889068-how-to-set-up-polygon-id-and-connect-) and create a wallet to store the claims. 
+Every user must have Metamask wallet to verify the provenance of products. Checkout how to create Metamask wallet from [here](https://polygon.technology/blog/getting-started-with-metamask-on-polygon). For SCM operations, kindly add the 5ire network from [here](https://docs.5ire.org/docs/how-to-build-on-5ireChain/EVMCompatability). 
 
 Follow the instructions for local environment: The user must have Node.js and npm to run this platform. Just download Node.js from [here](https://nodejs.org/en/download/).
 
@@ -13,8 +13,8 @@ Follow the instructions for local environment: The user must have Node.js and np
 
 Clone the repo via CLI:
 ```sh
-git clone https://github.com/rkmonarch/TrustChain
-cd TrustChain
+git clone https://github.com/neel-ds/provenance
+cd provenance
 ```
 
 Install the required packages:

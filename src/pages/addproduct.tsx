@@ -206,7 +206,7 @@ const Addproduct: NextPage = () => {
                               }}
                             />
                             <Image
-                              src={image !== "" ? image : "/previewIcon.png"}
+                              src={image !== "" ? image : "/preview.png"}
                               alt="preview"
                               width={200}
                               height={200}

@@ -79,7 +79,7 @@ const Producthistory: NextPage = () => {
     <>
       <Head>
         <title>Product History</title>
-        <meta name="description" content="Chain -Product History" />
+        <meta name="description" content="Product History" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
