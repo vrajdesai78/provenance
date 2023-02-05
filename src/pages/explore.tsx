@@ -3,7 +3,7 @@ import { SimpleGrid } from "@chakra-ui/react";
 import ProductCard from "../components/ProductCard";
 import { useContractRead } from "wagmi";
 import { useEffect, useState } from "react";
-import contractABI from "../contracts/trustchain.json";
+import contractABI from "../contracts/provenance.json";
 import { CONTRACT_ADDRESS } from "../utils/contractAddress";
 
 export default function Products() {

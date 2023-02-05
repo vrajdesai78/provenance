@@ -9,7 +9,7 @@ import ProductDetail from "../components/product-detail";
 import distributorQR from "../contracts/distributor/distributor.json";
 import { useDisclosure, useToast } from "@chakra-ui/react";
 import { QRCode } from "react-qr-svg";
-import trustchainABI from "../contracts/trustchain.json";
+import provenanceABI from "../contracts/provenance.json";
 import ABI from "../contracts/polygonID_ABI.json";
 import {
   useContractEvent,
@@ -53,14 +53,14 @@ const Updateproduct: NextPage = () => {
 
   const { data, isError, isLoading } = useContractRead({
     address: CONTRACT_ADDRESS,
-    abi: trustchainABI,
+    abi: provenanceABI,
     functionName: "getProduct",
     args: [productID],
   });
 
   const { config } = usePrepareContractWrite({
     address: CONTRACT_ADDRESS,
-    abi: trustchainABI,
+    abi: provenanceABI,
     functionName: "addLocationStatus",
     args: [productID, productLocation, locationURL],
   });

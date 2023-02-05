@@ -6,7 +6,7 @@ import Input from "../components/form-elements/input";
 import Header from "../components/form-components/Header";
 import Timeline from "../components/timeline";
 import ProductDetail from "../components/product-detail";
-import trustchainABI from "../contracts/trustchain.json";
+import provenanceABI from "../contracts/provenance.json";
 import { useContractRead } from "wagmi";
 import { useRouter } from "next/router";
 import { CONTRACT_ADDRESS } from "../utils/contractAddress";
@@ -31,7 +31,7 @@ const Producthistory: NextPage = () => {
 
   const { data, isError, isLoading } = useContractRead({
     address: CONTRACT_ADDRESS,
-    abi: trustchainABI,
+    abi: provenanceABI,
     functionName: "getProduct",
     args: [parseInt((productData as any).productid)],
   });

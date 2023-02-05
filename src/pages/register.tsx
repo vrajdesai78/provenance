@@ -6,7 +6,7 @@ import Input from '../components/form-elements/input'
 import Select from '../components/form-elements/select'
 import Button from '../components/form-elements/button'
 import Header from '../components/form-components/Header'
-import ABI from '../contracts/trustchain.json'
+import ABI from '../contracts/provenance.json'
 import { usePrepareContractWrite, useContractWrite, useWaitForTransaction } from 'wagmi'
 import { useToast } from '@chakra-ui/react'
 

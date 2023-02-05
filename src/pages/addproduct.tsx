@@ -15,7 +15,7 @@ import {
 } from "wagmi";
 import ABI from "../contracts/polygonID_ABI.json";
 import { Web3Storage } from "web3.storage";
-import trustchainABI from "../contracts/trustchain.json";
+import provenanceABI from "../contracts/provenance.json";
 import manufacturerQR from "../contracts/manufacturer/manufacturer.json";
 import {
   Modal,
@@ -72,7 +72,7 @@ const Addproduct: NextPage = () => {
   
     const { config } = usePrepareContractWrite({
     address: CONTRACT_ADDRESS,
-    abi: trustchainABI,
+    abi: provenanceABI,
     functionName: "addProduct",
     args: [
       (productData as any).productid,

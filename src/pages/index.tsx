@@ -34,8 +34,8 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>TrustChain</title>
-        <meta name="description" content="TrustChain" />
+        <title>Provenance</title>
+        <meta name="description" content="Provenance" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
