@@ -176,7 +176,9 @@ const Updateproduct: NextPage = () => {
                           placeholder="Location"
                           onChange={(e) => setProuctLocation(e.target.value)}
                         />
-                        <Button label="Update Product" onClick={onOpen} />
+                        <Button label="Update Product" onClick={() => {
+                          write?.();
+                        }} />
                         <Modal onClose={onClose} isOpen={isOpen} isCentered>
                           <ModalOverlay />
                           <ModalContent>

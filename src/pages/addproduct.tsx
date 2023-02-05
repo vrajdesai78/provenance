@@ -69,7 +69,8 @@ const Addproduct: NextPage = () => {
 
   const toast = useToast();
 
-  const { config } = usePrepareContractWrite({
+  
+    const { config } = usePrepareContractWrite({
     address: CONTRACT_ADDRESS,
     abi: trustchainABI,
     functionName: "addProduct",
@@ -216,10 +217,7 @@ const Addproduct: NextPage = () => {
                       </div>
                       <div className="max-w-[200px] flex m-auto">
                         <Button label="Add Product" onClick={() => {
-                              switchNetwork?.(80001);
-                              if(!isNetworkLoading) {
-                                onOpen();
-                              }
+                            write?.();
                         }} />
                         <Modal onClose={onClose} isOpen={isOpen} isCentered>
                           <ModalOverlay />

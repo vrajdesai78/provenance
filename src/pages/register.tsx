@@ -6,13 +6,14 @@ import Input from '../components/form-elements/input'
 import Select from '../components/form-elements/select'
 import Button from '../components/form-elements/button'
 import Header from '../components/form-components/Header'
-import ABI from '../contracts/polygonID_ABI.json'
+import ABI from '../contracts/trustchain.json'
 import { usePrepareContractWrite, useContractWrite, useWaitForTransaction } from 'wagmi'
 import { useToast } from '@chakra-ui/react'
 
 
 const Register: NextPage = () => {
   const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [role, setRole] = useState(0);
 
   const toast = useToast()
@@ -22,7 +23,7 @@ const Register: NextPage = () => {
     { name: 'Distributor', value: 'distributor' },
   ]
   const { config } = usePrepareContractWrite({
-    address: '0x4e90677555F6Ef8136075ec5A00230Dd41F5A2e8',
+    address: '0x3A0a9F84D6f64cCAaF9310453C71bE45ddd18645',
     abi: ABI,
     functionName: 'addUser',
     args: [name, role],
@@ -75,7 +76,9 @@ const Register: NextPage = () => {
                         label="Roles"
                         placeholder="Select role"
                         options={roles}
-                        onChange={(event) => { setRole(event.target.selectedIndex - 1) }}
+                        onChange={(event) => { 
+                          console.log(event.target.selectedIndex - 1);
+                          setRole(event.target.selectedIndex - 1) }}
                       />
                       <Button label="Register" onClick={() => {
                             write?.()
