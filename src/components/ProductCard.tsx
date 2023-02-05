@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Modal,
   ModalOverlay,
@@ -16,6 +16,7 @@ import {
   Center,
   useColorModeValue,
   HStack,
+  Image,
 } from "@chakra-ui/react";
 import Button from "../components/form-elements/button";
 import { QRCode } from "react-qr-svg";
@@ -27,11 +28,24 @@ interface ProductProps {
   name: string;
   description: string;
   imageURL: string;
+  qrCode: string;
+}
+async function postData(url: string): Promise<any> {
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      body: '{"content":"https://apyhub.com"}',
+    });
+    const responseData = await response.json();
+    return responseData;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 export default function ProductCard(props: ProductProps) {
   const router = useRouter();
-  const { productId, name, description, imageURL } = props;
+  const { productId, name, description, imageURL, qrCode } = props;
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Center py={6}>
@@ -84,7 +98,9 @@ export default function ProductCard(props: ProductProps) {
             //   router.push(`/producthistory?productId=${productId}`);
             // }}
             // write onclick to call the api and get the data
-            onClick={() => {onOpen();}}
+            onClick={() => {
+              onOpen();
+            }}
             justifyContent={"space-between"}
             roundedBottom={"sm"}
             cursor={"pointer"}
@@ -103,7 +119,7 @@ export default function ProductCard(props: ProductProps) {
                     <QRCode
                       level="Q"
                       style={{ width: 350 }}
-                      value={""}
+                      value={String(productId)}
                     />
                   </Box>
                 </ModalBody>
