@@ -14,6 +14,10 @@
   background: #a13bf7;
   z-index: 1;
 }
+
+.dark .timeline:before {
+  background: #2fceff;
+}
 .timeline {
   position: relative;
   margin: 10px auto;
@@ -60,6 +64,11 @@
   z-index: 1;
 }
 
+.dark .timeline ul li:before {
+  background: #2fceff;
+  box-shadow: 0 0 0 3px #2fceff;
+}
+
 .timeline ul li .left_content {
   position: absolute;
   top: 12px;
@@ -70,6 +79,10 @@
   color: #fff;
   box-shadow: 0 0 0 3px #a13bf7;
   border-radius: 18px;
+}
+
+.dark .timeline ul li .left_content {
+  box-shadow: 0 0 0 3px #2fceff;
 }
 
 @media (max-width: 1000px) {

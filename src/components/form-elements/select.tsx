@@ -34,7 +34,8 @@ const Select = ({
         name={name}
         onChange={onChange}
         className="mt-0 text-gray-700 dark:text-white"
-        focusBorderColor="#008dff"
+        borderColor="text-gray-600"
+        focusBorderColor="#a13bf7"
       >
         <option selected hidden disabled value="">
           {placeholder}

@@ -46,10 +46,10 @@ const Home: NextPage = () => {
               <span className="block xl:inline text-gray-800 dark:text-white">
                 Welcome to
               </span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#8b00ff] to-[#a75eff] dark:from-[#8c2bff] dark:to-[#d97dff] pb-4">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#732fff] to-[#a75eff] dark:from-[#00bdff] dark:to-[#48cbe8] pb-4">
                 Provenance
               </span>
-              <span className="block font-semibold text-gray-200 dark:text-[#e99aff] font-medium text-2xl">
+              <span className="block font-semibold text-[#732fff] dark:text-[#e99aff] font-medium text-2xl">
                 Decentralized Application
               </span>
             </h1>
