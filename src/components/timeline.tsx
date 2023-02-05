@@ -14,7 +14,7 @@ const TimelineItem = ({
   return (
     <li>
       <div className="right_content">
-        <h2 className="text-[#a13bf7]">{title}</h2>
+        <h2 className="text-[#a13bf7] dark:text-[#2fceff]">{title}</h2>
         <a
           href={des}
           target="_blank"

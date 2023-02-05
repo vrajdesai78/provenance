@@ -38,16 +38,16 @@ const Header = () => {
 
   return (
     <>
-      <nav className="fixed z-10 w-full mx-auto bg-pink-300 bg-opacity-80 border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-black dark:bg-opacity-80 drop-shadow-lg dark:drop-shadow-[0_10px_25px_rgba(255,255,255,0.25)]">
+      <nav className="fixed z-10 w-full mx-auto bg-blue-200 bg-opacity-60 border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800 dark:bg-opacity-60 drop-shadow-lg dark:drop-shadow-[0_20px_35px_rgba(255,255,255,0.25)]">
         <div className="max-w-[1080px] container flex flex-wrap justify-between items-center mx-auto">
           <Link href="/" className="flex items-center flex-1">
-            <span className="flex flex-row items-center self-center text-xl font-bold whitespace-nowrap text-[#9504ff] hover:text-[#a137df] dark:text-[#c26fff]">
+            <span className="flex flex-row items-center self-center text-xl font-bold whitespace-nowrap text-[#9504ff] hover:text-[#a137df] dark:text-[#2fceff]">
               <Image
                 src="/provenanceLogo.png"
-                width="60"
-                height="60"
+                width="70"
+                height="70"
                 className="mr-2"
-                alt="ProvenanceLogo"
+                alt="Provenance"
               />
               Provenance
             </span>
@@ -57,7 +57,7 @@ const Header = () => {
             <button
               data-collapse-toggle="mobile-menu-4"
               type="button"
-              className="ml-2 md:ml-0 inline-flex items-center py-2 px-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              className="ml-2 md:ml-0 inline-flex items-center py-2 px-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-200 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
               onClick={() => setIsOpenMenu(!isOpenMenu)}
             >
               <span className="sr-only">Open main menu</span>
@@ -65,18 +65,20 @@ const Header = () => {
             </button>
           </div>
           <div
-            className={`${isOpenMenu ? "block" : "hidden"
-              } justify-between items-center w-full md:flex md:w-auto md:order-1`}
+            className={`${
+              isOpenMenu ? "block" : "hidden"
+            } justify-between items-center w-full md:flex md:w-auto md:order-1`}
           >
             <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
               <li></li>
               <li>
                 <Link
                   href="/"
-                  className={`${pathname === "/"
+                  className={`${
+                    pathname === "/"
                       ? "text-[#a137df] dark:text-white"
                       : "text-gray-700"
-                    } block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-[#9504ff] md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700`}
+                  } block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-[#9504ff] md:p-0 md:dark:hover:text-white dark:text-gray-200 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700`}
                   aria-current="page"
                 >
                   <b>Home</b>
@@ -85,10 +87,11 @@ const Header = () => {
               <li>
                 <Link
                   href="/explore"
-                  className={`${pathname === "/products"
+                  className={`${
+                    pathname === "/products"
                       ? "text-[#a137df] dark:text-white"
                       : "text-gray-700"
-                    } block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-[#9504ff] md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700`}
+                  } block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-[#9504ff] md:p-0 md:dark:hover:text-white dark:text-gray-200 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700`}
                   aria-current="page"
                 >
                   <b>Explore</b>
@@ -97,10 +100,11 @@ const Header = () => {
               <li>
                 <Link
                   href="/register"
-                  className={`${pathname === "/register"
+                  className={`${
+                    pathname === "/register"
                       ? "text-[#a137df] dark:text-white"
                       : "text-gray-700"
-                    } block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-[#9504ff] md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700`}
+                  } block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-[#9504ff] md:p-0 md:dark:hover:text-white dark:text-gray-200 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700`}
                   aria-current="page"
                 >
                   <b>Register</b>
@@ -111,23 +115,24 @@ const Header = () => {
                   <PopoverTrigger>
                     <Link
                       href="#"
-                      className={`${pathname === "#"
+                      className={`${
+                        pathname === "#"
                           ? "text-[#a137df] dark:text-white"
                           : "text-gray-700"
-                        } block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-[#9504ff] md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700`}
+                      } block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-[#9504ff] md:p-0 md:dark:hover:text-white dark:text-gray-200 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700`}
                       aria-current="page"
                     >
                       <b>Products</b>
                     </Link>
                   </PopoverTrigger>
-                  <PopoverContent className="bg-pink-100 bg-opacity-80 box-border h-25 w-35 dark:bg-black/40 dark:bg-opacity-80 dark:text-white/80 shadow-lg rounded-xl border-1 p-4 min-w-sm">
+                  <PopoverContent className="bg-blue-100 bg-opacity-80 box-border h-25 w-35 dark:bg-black/40 dark:bg-opacity-80 dark:text-white/80 shadow-lg rounded-xl border-1 p-4 min-w-sm">
                     <Link
                       href="/addproduct"
-                      className="group display-block p-2 rounded-md hover:bg-pink-200 hover:text-[#a13bf7]"
+                      className="group display-block p-2 rounded-md hover:bg-blue-200 hover:text-[#008dff]"
                     >
                       <Stack direction={"row"} align={"center"}>
                         <Box>
-                          <Text className="font-semibold pb-1 transition ease-in-out delay-10 group-hover:pink-400">
+                          <Text className="font-semibold pb-1 transition ease-in-out delay-10 group-hover:blue-400">
                             {"Add Product"}
                           </Text>
                         </Box>
@@ -138,11 +143,11 @@ const Header = () => {
                     </Link>
                     <Link
                       href="/updateproduct"
-                      className="group display-block p-2 rounded-md hover:bg-pink-200 hover:text-[#a13bf7]"
+                      className="group display-block p-2 rounded-md hover:bg-blue-200 hover:text-[#008dff]"
                     >
                       <Stack direction={"row"} align={"center"}>
                         <Box>
-                          <Text className="font-semibold pb-1 transition ease-in-out delay-10 group-hover:pink-400">
+                          <Text className="font-semibold pb-1 transition ease-in-out delay-10 group-hover:blue-400">
                             {"Update Status"}
                           </Text>
                         </Box>
@@ -157,10 +162,11 @@ const Header = () => {
               <li>
                 <Link
                   href="/producthistory"
-                  className={`${pathname === "/producthistory"
+                  className={`${
+                    pathname === "/producthistory"
                       ? "text-[#a137df] dark:text-white"
                       : "text-gray-700"
-                    } block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-[#9504ff] md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700`}
+                  } block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-[#9504ff] md:p-0 md:dark:hover:text-white dark:text-gray-200 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700`}
                   aria-current="page"
                 >
                   <b>Product History</b>
