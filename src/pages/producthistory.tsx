@@ -49,6 +49,7 @@ const Producthistory: NextPage = () => {
       setProductHistory(
         locationStatuses.map((location: string, index: number) => {
           const convertedTime = timestamp[index];
+          console.log("convertedTime", convertedTime);
           const date = new Date(convertedTime * 1000).toLocaleString();
           return { title: location, time: date, Location: locationURL[index] };
         })
