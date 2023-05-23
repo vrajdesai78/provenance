@@ -68,7 +68,7 @@
 				"type": "string"
 			},
 			{
-				"internalType": "enum TrustChain.Role",
+				"internalType": "enum Provenance.Role",
 				"name": "_role",
 				"type": "uint8"
 			}
@@ -120,7 +120,7 @@
 						"type": "string[]"
 					}
 				],
-				"internalType": "struct TrustChain.Product[]",
+				"internalType": "struct Provenance.Product[]",
 				"name": "",
 				"type": "tuple[]"
 			}
@@ -176,7 +176,7 @@
 						"type": "string[]"
 					}
 				],
-				"internalType": "struct TrustChain.Product",
+				"internalType": "struct Provenance.Product",
 				"name": "",
 				"type": "tuple"
 			}
@@ -192,37 +192,6 @@
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_address",
-				"type": "address"
-			}
-		],
-		"name": "getUser",
-		"outputs": [
-			{
-				"components": [
-					{
-						"internalType": "string",
-						"name": "name",
-						"type": "string"
-					},
-					{
-						"internalType": "enum TrustChain.Role",
-						"name": "role",
-						"type": "uint8"
-					}
-				],
-				"internalType": "struct TrustChain.User",
-				"name": "",
-				"type": "tuple"
 			}
 		],
 		"stateMutability": "view",
@@ -310,7 +279,7 @@
 				"type": "string"
 			},
 			{
-				"internalType": "enum TrustChain.Role",
+				"internalType": "enum Provenance.Role",
 				"name": "role",
 				"type": "uint8"
 			}

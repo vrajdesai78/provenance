@@ -9,6 +9,7 @@ import Header from '../components/form-components/Header'
 import ABI from '../contracts/provenance.json'
 import { usePrepareContractWrite, useContractWrite, useWaitForTransaction } from 'wagmi'
 import { useToast } from '@chakra-ui/react'
+import { CONTRACT_ADDRESS } from "../utils/contractAddress";
 
 
 const Register: NextPage = () => {
@@ -23,7 +24,7 @@ const Register: NextPage = () => {
     { name: 'Distributor', value: 'distributor' },
   ]
   const { config } = usePrepareContractWrite({
-    address: '0x3A0a9F84D6f64cCAaF9310453C71bE45ddd18645',
+    address: CONTRACT_ADDRESS,
     abi: ABI,
     functionName: 'addUser',
     args: [name, role],
@@ -77,8 +78,8 @@ const Register: NextPage = () => {
                         placeholder="Select role"
                         options={roles}
                         onChange={(event) => { 
-                          console.log(event.target.selectedIndex - 1);
-                          setRole(event.target.selectedIndex - 1) }}
+                          console.log(event.target.selectedIndex);
+                          setRole(event.target.selectedIndex) }}
                       />
                       <Button label="Register" onClick={() => {
                             write?.()

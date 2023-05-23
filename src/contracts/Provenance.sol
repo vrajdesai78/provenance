@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.17;
 
 contract Provenance {
@@ -9,6 +10,33 @@ contract Provenance {
         string[] locationStatuses;
         uint256[] timestamp;
         string[] locationURL;
+    }
+
+    // Enum to store different user roles
+    enum Role {
+        Default,
+        Manufacturer,
+        Distributor,
+        Retailer
+    }
+
+    // Struct to store information about users
+    struct User {
+        string name;
+        string email;
+        Role role;
+    }
+
+    // Mapping to store the address of the user to the user struct
+    mapping(address => User) public users;
+
+    // Add a new user to the mapping
+    function addUser(
+        string memory _name,
+        string memory _email,
+        Role _role
+    ) public {
+        users[msg.sender] = User(_name, _email, _role);
     }
 
     mapping(uint256 => Product) public products;
@@ -26,6 +54,10 @@ contract Provenance {
         string memory _imageURL,
         string memory _locationURL
     ) public {
+        require(
+            users[msg.sender].role == Role.Manufacturer,
+            "Only manufacturer can add products"
+        );
         productCount++;
         products[_id] = Product(
             _id,
@@ -47,6 +79,7 @@ contract Provenance {
         string memory _locationStatus,
         string memory _locationURL
     ) public {
+        require(users[msg.sender].role != Role.Default, "User is not registered");
         Product storage _product = products[_id];
         _product.locationStatuses.push(_locationStatus);
         _product.locationURL.push(_locationURL);
